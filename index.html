@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2 Truths 1 Lie</title>
+<style>
+  body { font-family: Arial, sans-serif; padding: 20px; }
+  .statement { padding: 10px; margin: 10px 0; border: 1px solid #ccc; border-radius: 5px; cursor: pointer; }
+  .correct { background-color: #c8f7c5; }
+  .wrong { background-color: #f7c5c5; }
+</style>
+</head>
+<body>
+
+<h1>Guess the Lie!</h1>
+
+<div class="statement" onclick="checkLie(this, false)">I have climbed a mountain.</div>
+<div class="statement" onclick="checkLie(this, false)">I can speak three languages.</div>
+<div class="statement" onclick="checkLie(this, true)">I have been to the moon.</div>
+<div class="statement" onclick="checkLie(this, false)">I love pineapple on pizza.</div>
+
+<script>
+function checkLie(element, isLie) {
+  if(isLie) {
+    element.classList.add('correct');
+    alert("Correct! That was the lie.");
+  } else {
+    element.classList.add('wrong');
+    alert("Oops! That was actually true.");
+  }
+  // Optional: disable further clicks
+  let statements = document.querySelectorAll('.statement');
+  statements.forEach(s => s.onclick = null);
+}
+</script>
+
+</body>
+</html>
