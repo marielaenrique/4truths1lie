@@ -3,22 +3,19 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>2 Truths 1 Lie</title>
-<style>
-  body { font-family: Arial, sans-serif; padding: 20px; }
-  .statement { padding: 10px; margin: 10px 0; border: 1px solid #ccc; border-radius: 5px; cursor: pointer; }
-  .correct { background-color: #c8f7c5; }
-  .wrong { background-color: #f7c5c5; }
-</style>
+<title>4 Truths, 1 Lie</title>
+<link rel="stylesheet" href="src/style.css">
 </head>
 <body>
 
-<h1>Guess the Lie!</h1>
+<h1>4 Truths, 1 Lie</h1>
+<h2>Guess the lie!</h2>
 
-<div class="statement" onclick="checkLie(this, false)">I have climbed a mountain.</div>
-<div class="statement" onclick="checkLie(this, false)">I can speak three languages.</div>
-<div class="statement" onclick="checkLie(this, true)">I have been to the moon.</div>
-<div class="statement" onclick="checkLie(this, false)">I love pineapple on pizza.</div>
+<div class="statement" onclick="checkLie(this, false)">I have climbed a mountain</div>
+<div class="statement" onclick="checkLie(this, false)">I can speak three languages</div>
+<div class="statement" onclick="checkLie(this, true)">I have been to the moon</div>
+<div class="statement" onclick="checkLie(this, false)">I love pineapple on pizza</div>
+<div class="statement" onclick="checkLie(this, false)">I love to travel</div>
 
 <script>
 function checkLie(element, isLie) {
@@ -30,8 +27,8 @@ function checkLie(element, isLie) {
     alert("Oops! That was actually true.");
   }
   // Optional: disable further clicks
-  let statements = document.querySelectorAll('.statement');
-  statements.forEach(s => s.onclick = null);
+  //let statements = document.querySelectorAll('.statement');
+  //statements.forEach(s => s.onclick = null);
 }
 </script>
 
