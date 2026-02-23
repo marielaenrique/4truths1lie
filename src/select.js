@@ -1,27 +1,50 @@
-const popupModal = document.getElementById('popup-modal')
-const popupText = document.getElementById('popup-text')
-const popupOk = document.getElementById('popup-ok')
-const popupImg = document.getElementById('popup-img')
+const popupModal = document.getElementById('popup-modal');
+const popupText = document.getElementById('popup-text');
+const popupOk = document.getElementById('popup-ok');
+const popupImg = document.getElementById('popup-img');
+
+const allImages = [
+  "public/correct.webp",
+  "public/wrong.webp",
+  "public/wrong1.webp",
+  "public/wrong2.webp",
+  "public/wrong3.webp"
+];
+
+allImages.forEach(src => {
+  const img = new Image();
+  img.src = src;
+});
 
 function showPopup(message, imgSrc = null) {
   return new Promise(resolve => {
-    popupText.textContent = message
+    popupText.textContent = message;
 
     if (imgSrc) {
-      popupImg.src = imgSrc
-      popupImg.style.display = "block"
-    } else {
-      popupImg.style.display = "none"
-    }
+      popupImg.onload = () => {
+        popupModal.classList.add('show');
+      };
 
-    popupModal.classList.add('show')
+      popupImg.onerror = () => {
+        popupModal.classList.add('show');
+      };
+
+      popupImg.src = imgSrc;
+      popupImg.style.display = "block";
+    } else {
+      popupImg.style.display = "none";
+      popupModal.classList.add('show');
+    }
 
     popupOk.onclick = () => {
-      popupModal.classList.remove('show')
-      resolve()
-    }
-  })
+      popupModal.classList.remove('show');
+      popupImg.onload = null;
+      popupImg.onerror = nulll;
+      resolve();
+    };
+  });
 }
+
 let wrongImagesPool = [];
 
 export async function checkLie(element, isLie) {
@@ -31,7 +54,7 @@ export async function checkLie(element, isLie) {
     element.classList.add('wrong');
   }
 
-  await new Promise(r => setTimeout(r, 50));
+  await new Promise(r => setTimeout(r, 100));
 
   if (isLie) {
     await showPopup("Correct! That was the lie", "public/correct.webp");
