@@ -34,10 +34,10 @@ export async function checkLie(element, isLie) {
   await new Promise(r => setTimeout(r, 50));
 
   if (isLie) {
-    await showPopup("Correct! That was the lie", "./public/correct.webp");
+    await showPopup("Correct! That was the lie", "public/correct.webp");
   } else {
     if (wrongImagesPool.length === 0) {
-      wrongImagesPool = ["./public/wrong.webp", "./public/wrong1.webp", "./public/wrong2.webp", "./public/wrong3.webp"];
+      wrongImagesPool = ["public/wrong.webp", "public/wrong1.webp", "public/wrong2.webp", "public/wrong3.webp"];
     }
     const randomIndex = Math.floor(Math.random() * wrongImagesPool.length);
     const randomImg = wrongImagesPool.splice(randomIndex, 1)[0];
