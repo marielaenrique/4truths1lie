@@ -29,7 +29,7 @@ function showPopup(message, imgSrc = null) {
       popupImg.style.display = "block";
       popupImg.onload = displayModal;
       popupImg.onerror = displayModal;
-      
+
       if (popupImg.complete) displayModal();
     } else {
       popupImg.style.display = "none";
@@ -63,10 +63,10 @@ export async function checkLie(element, isLie) {
       await showPopup("Oops! That was actually true", randomImg);
     }
   } catch (err) {
-    console.error("Error en el popup:", err);
+    console.error("Error in the popup:", err);
   } finally {
     element.classList.remove('correct', 'wrong');
-    
+
     if (typeof element.blur === 'function') {
       element.blur();
     }
