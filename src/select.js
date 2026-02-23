@@ -54,8 +54,6 @@ export async function checkLie(element, isLie) {
     element.classList.add('wrong');
   }
 
-  await new Promise(r => setTimeout(r, 100));
-
   if (isLie) {
     await showPopup("Correct! That was the lie", "public/correct.webp");
   } else {
