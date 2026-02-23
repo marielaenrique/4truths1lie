@@ -1,4 +1,4 @@
-import { checkLie } from './select.js'
+import { checkLie } from './src/select.js'
 
 document.querySelectorAll('.statement').forEach(element => {
 
