@@ -39,7 +39,7 @@ function showPopup(message, imgSrc = null) {
     popupOk.onclick = () => {
       popupModal.classList.remove('show');
       popupImg.onload = null;
-      popupImg.onerror = nulll;
+      popupImg.onerror = null;
       resolve();
     };
   });
