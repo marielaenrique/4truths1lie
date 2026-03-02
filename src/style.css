@@ -22,8 +22,6 @@ body::before {
 }
 
 .statement {
-  width: 70%;
-  max-width: 600px,
   padding: 10px;
   margin: 50px 0;
   border: 1px solid black;
